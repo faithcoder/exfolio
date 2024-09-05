@@ -1,0 +1,21 @@
+/* ExFolio Plugin Styles */
+.exfolio-experience-list {
+    margin: 20px 0;
+}
+
+.exfolio-experience-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.exfolio-toggle-collapse {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.exfolio-collapse-content {
+    margin-top: 10px;
+    display: none;
+}
