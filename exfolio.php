@@ -3,7 +3,7 @@
  * Plugin Name: ExFolio
  * Description: A plugin to manage and display experience sections with jQuery Collapse using shortcodes.
  * Version: 1.0
- * Author: Your Name
+ * Author: M Arif
  * Text Domain: exfolio
  */
 
