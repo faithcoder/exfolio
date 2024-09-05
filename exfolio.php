@@ -67,7 +67,7 @@ function exfolio_experience_meta_box_callback($post) {
     $company_name = get_post_meta($post->ID, '_exfolio_company_name', true);
     $duration = get_post_meta($post->ID, '_exfolio_duration', true);
     $paragraph_input = get_post_meta($post->ID, '_exfolio_paragraph_input', true);
-    $description = get_post_meta($post->ID, '_exfolio_description', true);
+   
 
     echo '<label for="exfolio_company_name">Company Name:</label>';
     echo '<input type="text" id="exfolio_company_name" name="exfolio_company_name" value="' . esc_attr($company_name) . '" class="widefat">';
@@ -78,8 +78,6 @@ function exfolio_experience_meta_box_callback($post) {
     echo '<label for="exfolio_paragraph_input">Paragraph Input:</label>';
     echo '<textarea id="exfolio_paragraph_input" name="exfolio_paragraph_input" rows="4" class="widefat">' . esc_textarea($paragraph_input) . '</textarea>';
 
-    echo '<label for="exfolio_description">Description:</label>';
-    wp_editor($description, 'exfolio_description', ['textarea_name' => 'exfolio_description', 'media_buttons' => false]);
 }
 
 // Save Meta Box Data
@@ -99,7 +97,7 @@ function exfolio_save_experience_meta($post_id) {
     update_post_meta($post_id, '_exfolio_company_name', sanitize_text_field($_POST['exfolio_company_name']));
     update_post_meta($post_id, '_exfolio_duration', sanitize_text_field($_POST['exfolio_duration']));
     update_post_meta($post_id, '_exfolio_paragraph_input', sanitize_textarea_field($_POST['exfolio_paragraph_input']));
-    update_post_meta($post_id, '_exfolio_description', wp_kses_post($_POST['exfolio_description']));
+    
 }
 add_action('save_post', 'exfolio_save_experience_meta');
 
@@ -120,16 +118,18 @@ function exfolio_display_experiences() {
                 $company_name = get_post_meta(get_the_ID(), '_exfolio_company_name', true);
                 $duration = get_post_meta(get_the_ID(), '_exfolio_duration', true);
                 $paragraph_input = get_post_meta(get_the_ID(), '_exfolio_paragraph_input', true);
-                $description = get_post_meta(get_the_ID(), '_exfolio_description', true);
+                
                 ?>
                 <div class="exfolio-experience-item">
                     <h3 class="exfolio-experience-title"><?php the_title(); ?></h3>
+                    <?php the_post_thumbnail()?>
+                    <p><strong>Company:</strong> <?php echo esc_html($company_name); ?></p>
+                        <p><strong>Duration:</strong> <?php echo esc_html($duration); ?></p>
                     <button class="exfolio-toggle-collapse">Toggle Details</button>
                     <div class="exfolio-collapse-content" style="display: none;">
-                        <p><strong>Company:</strong> <?php echo esc_html($company_name); ?></p>
-                        <p><strong>Duration:</strong> <?php echo esc_html($duration); ?></p>
+                        
                         <p><strong>Paragraph:</strong> <?php echo esc_html($paragraph_input); ?></p>
-                        <div class="exfolio-description"><?php echo wp_kses_post($description); ?></div>
+                        <p><?php the_content() ?></p>
                     </div>
                 </div>
             <?php endwhile; ?>
