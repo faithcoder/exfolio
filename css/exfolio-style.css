@@ -18,8 +18,7 @@
 .exfolio-experience-item {
     margin-bottom: 15px;
     padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border-bottom: 1px solid #ddd;
 }
 
 .exfolio-toggle-collapse {
