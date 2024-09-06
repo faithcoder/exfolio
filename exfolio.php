@@ -122,14 +122,22 @@ function exfolio_display_experiences() {
                 ?>
                 <div class="exfolio-experience-item">
                     <h3 class="exfolio-experience-title"><?php the_title(); ?></h3>
-                    <?php the_post_thumbnail()?>
-                    <p><strong>Company:</strong> <?php echo esc_html($company_name); ?></p>
-                        <p><strong>Duration:</strong> <?php echo esc_html($duration); ?></p>
-                    <button class="exfolio-toggle-collapse">Toggle Details</button>
-                    <div class="exfolio-collapse-content" style="display: none;">
+                   <div class="exfolio-experience-meta-info">
+                        <div class="exfolio-company-logo">
+                            <img src="<?php the_post_thumbnail_url() ?>" alt="">
+                        </div>
+                        <div class="exfolio-company-name">
+                            <h4><?php echo esc_html($company_name); ?></h4>
+                        </div>
+                        <div class="exfolio-company-duration">
+                            <p><?php echo esc_html($duration); ?></p>
+                        </div>
                         
-                        <p><strong>Paragraph:</strong> <?php echo esc_html($paragraph_input); ?></p>
-                        <p><?php the_content() ?></p>
+                   </div>
+                    <div class="exfolio-collapse-content" style="">
+                        <button class="exfolio-toggle-collapse">Toggle Details</button>
+                        <p class="exfolio-responsibilities"><?php echo esc_html($paragraph_input); ?></p>
+                        <p class="exfolio-description"><?php the_content() ?></p>
                     </div>
                 </div>
             <?php endwhile; ?>

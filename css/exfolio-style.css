@@ -3,6 +3,18 @@
     margin: 20px 0;
 }
 
+.exfolio-experience-list h1,
+.exfolio-experience-list h2,
+.exfolio-experience-list h3,
+.exfolio-experience-list h4,
+.exfolio-experience-list h5,
+.exfolio-experience-list h6,
+.exfolio-experience-list ul,
+.exfolio-experience-list li{
+    margin: 0;
+    padding: 0;
+}
+
 .exfolio-experience-item {
     margin-bottom: 15px;
     padding: 10px;
@@ -17,5 +29,74 @@
 
 .exfolio-collapse-content {
     margin-top: 10px;
-    display: none;
+    /* display: none; */
+}
+
+.exfolio-experience-meta-info {
+    display: flex;
+    justify-content: start;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+
+h3.exfolio-experience-title {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 29px;
+    color: #000;
+}
+.exfolio-experience-meta-info img {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+.exfolio-company-name h4 {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #000000B2;
+    position: relative;
+    margin-right: 20px;
+}
+
+.exfolio-company-name h4::after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 16px;
+    top: 3px;
+    right: -13px;
+    background: #00000066;
+}
+
+.exfolio-company-duration p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #00000099;
+}
+
+p.exfolio-responsibilities{
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+    color: #00000066;
+    text-transform: uppercase;
+}
+
+p.exfolio-description{
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 28px;
+    color: #000;
+    
+}
+
+.exfolio-collapse-content ul{
+    margin-left: 13px;
+}
+
+.exfolio-collapse-content li::marker{
+    color: #00000066;
 }
