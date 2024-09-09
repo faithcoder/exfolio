@@ -1,12 +1,14 @@
+
+
 jQuery(document).ready(function($) {
-    // Toggle collapse content
-    $('.exfolio_collapse_toggle').on('click', function() {
-        var $collapseContent = $(this).closest('.exfolio-experience-item').find('.exfolio-collapse-content');
-        var $iconDown = $(this).find('.collapse-icon-down');
-        var $iconUp = $(this).find('.collapse-icon-up');
+    $('.exfolio-experience-title, .exfolio_collapse_toggle').on('click', function() {
+        var $experienceItem = $(this).closest('.exfolio-experience-item');
+        var $collapseContent = $experienceItem.find('.exfolio-collapse-content');
+        var $iconDown = $experienceItem.find('.collapse-icon-down');
+        var $iconUp = $experienceItem.find('.collapse-icon-up');
 
         // Toggle content visibility
-        $collapseContent.slideToggle(300); // Adjust animation speed as needed
+        $collapseContent.slideToggle(300); 
 
         // Toggle icons
         $iconDown.toggle();

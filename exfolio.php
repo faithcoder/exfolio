@@ -128,6 +128,7 @@ function exfolio_display_experiences() {
                     <?php echo isset($exfolio_experience_id) && !empty($exfolio_experience_id) ? 'id="' . esc_attr($exfolio_experience_id) . '"' : ''; ?>>
                     
                     <h3 class="exfolio-experience-title"><?php the_title(); ?></h3>
+                    
                     <div class="exfolio-experience-meta-info">
                         <div class="exfolio-company-logo">
                             <?php if (get_the_post_thumbnail_url()): ?>
@@ -144,17 +145,19 @@ function exfolio_display_experiences() {
                                 <p><?php echo esc_html($duration); ?></p>
                             <?php endif; ?>
                         </div>
-                        <!-- Toggle button for collapse -->
+                        
                         <div class="exfolio_collapse_toggle">
-                            <img class="collapse-icon collapse-icon-down" src="<?php echo esc_url($collapse_icon_down); ?>" alt="arrow-down">
-                            <img class="collapse-icon collapse-icon-up" src="<?php echo esc_url($collapse_icon_up); ?>" alt="arrow-up" style="display: none;">
+                            <img class="collapse-icon collapse-icon-down" src="<?php echo esc_url($collapse_icon_down); ?>" alt="arrow-down" style="display: none;">
+                            <img class="collapse-icon collapse-icon-up" src="<?php echo esc_url($collapse_icon_up); ?>" alt="arrow-up">
                         </div>
                     </div>
-                    <div class="exfolio-collapse-content" style="display: none;">
+                    
+                    <div class="exfolio-collapse-content">
                         <p class="exfolio-responsibilities">Responsibilities</p>
                         <p class="exfolio-description"><?php the_content(); ?></p>
                     </div>
                 </div>
+
 
             <?php endwhile; ?>
         </div>
