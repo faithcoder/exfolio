@@ -1,6 +1,7 @@
 /* ExFolio Plugin Styles */
 .exfolio-experience-list {
     margin: 20px 0;
+    font-family: Inter;
 }
 
 .exfolio-experience-list h1,
@@ -10,7 +11,9 @@
 .exfolio-experience-list h5,
 .exfolio-experience-list h6,
 .exfolio-experience-list ul,
-.exfolio-experience-list li{
+.exfolio-experience-list li,
+.exfolio-experience-list p
+{
     margin: 0;
     padding: 0;
 }
@@ -18,7 +21,8 @@
 .exfolio-experience-item {
     margin-bottom: 15px;
     padding: 10px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #0000001A;
+    font-family: Inter;
 }
 .exfolio-experience-item:last-child {
     border: none;
@@ -38,7 +42,8 @@
     justify-content: start;
     gap: 5px;
     flex-wrap: wrap;
-    margin: 10px 0;
+    margin: 10px 0px 20px 0px;
+    font-family: Inter;
 }
 
 h3.exfolio-experience-title {
@@ -47,6 +52,7 @@ h3.exfolio-experience-title {
     line-height: 29px;
     color: #000;
     cursor: pointer;
+    font-family: Inter;
 }
 .exfolio-experience-meta-info img {
     width: 20px;
@@ -60,6 +66,7 @@ h3.exfolio-experience-title {
     color: #000000B2;
     position: relative;
     margin-right: 20px;
+    font-family: Inter;
 }
 
 .exfolio-company-name h4::after {
@@ -85,6 +92,7 @@ p.exfolio-responsibilities{
     line-height: 14px;
     color: #00000066;
     text-transform: uppercase;
+    margin: 15px 0;
 }
 
 p.exfolio-description{
@@ -97,6 +105,9 @@ p.exfolio-description{
 
 .exfolio-collapse-content ul{
     margin-left: 13px;
+}
+.exfolio-collapse-content li{
+    margin: 10px 0;
 }
 
 .exfolio-collapse-content li::marker{
