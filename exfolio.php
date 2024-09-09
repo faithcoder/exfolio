@@ -66,6 +66,7 @@ function exfolio_experience_meta_box_callback($post) {
 
     $company_name = get_post_meta($post->ID, '_exfolio_company_name', true);
     $duration = get_post_meta($post->ID, '_exfolio_duration', true);
+    $exfolio_experience_id = get_post_meta($post->ID, '_exfolio_experience_id', true);
    
 
     echo '<label for="exfolio_company_name">Company Name:</label>';
@@ -73,6 +74,9 @@ function exfolio_experience_meta_box_callback($post) {
 
     echo '<label for="exfolio_duration">Duration:</label>';
     echo '<input type="text" id="exfolio_duration" name="exfolio_duration" value="' . esc_attr($duration) . '" class="widefat">';
+    
+    echo '<label for="exfolio_experience_id">Experience Section Id:</label>';
+    echo '<input type="text" id="exfolio_experience_id" name="exfolio_experience_id" value="' . esc_attr($exfolio_experience_id) . '" class="widefat">';
 
 }
 
@@ -92,6 +96,7 @@ function exfolio_save_experience_meta($post_id) {
 
     update_post_meta($post_id, '_exfolio_company_name', sanitize_text_field($_POST['exfolio_company_name']));
     update_post_meta($post_id, '_exfolio_duration', sanitize_text_field($_POST['exfolio_duration']));
+    update_post_meta($post_id, '_exfolio_experience_id', sanitize_text_field($_POST['exfolio_experience_id']));
     
 }
 add_action('save_post', 'exfolio_save_experience_meta');
@@ -106,41 +111,51 @@ function exfolio_display_experiences() {
     ];
     $query = new WP_Query($args);
 
+    // Define the URL of the image
+    $collapse_icon_down = plugin_dir_url(__FILE__) . 'img/arrow-down.png';
+    $collapse_icon_up = plugin_dir_url(__FILE__) . 'img/arrow-up.png';
+
     if ($query->have_posts()): ?>
         <div class="exfolio-experience-list">
             <?php while ($query->have_posts()): $query->the_post(); ?>
                 <?php
                 $company_name = get_post_meta(get_the_ID(), '_exfolio_company_name', true);
                 $duration = get_post_meta(get_the_ID(), '_exfolio_duration', true);
-                $paragraph_input = get_post_meta(get_the_ID(), '_exfolio_paragraph_input', true);
+                $exfolio_experience_id = get_post_meta(get_the_ID(), '_exfolio_experience_id', true);
                 
                 ?>
-                <div class="exfolio-experience-item">
+                <div class="exfolio-experience-item" 
+                    <?php echo isset($exfolio_experience_id) && !empty($exfolio_experience_id) ? 'id="' . esc_attr($exfolio_experience_id) . '"' : ''; ?>>
+                    
                     <h3 class="exfolio-experience-title"><?php the_title(); ?></h3>
-                   <div class="exfolio-experience-meta-info">
+                    <div class="exfolio-experience-meta-info">
                         <div class="exfolio-company-logo">
-                        <?php if (get_the_post_thumbnail_url()): ?>
-                            <img src="<?php echo esc_url(get_the_post_thumbnail_url()); ?>" alt="">
-                        <?php endif; ?>
+                            <?php if (get_the_post_thumbnail_url()): ?>
+                                <img src="<?php echo esc_url(get_the_post_thumbnail_url()); ?>" alt="">
+                            <?php endif; ?>
                         </div>
                         <div class="exfolio-company-name">
-                            <?php if($company_name): ?>
-                            <h4><?php echo esc_html($company_name); ?></h4>
+                            <?php if ($company_name): ?>
+                                <h4><?php echo esc_html($company_name); ?></h4>
                             <?php endif; ?>
                         </div>
                         <div class="exfolio-company-duration">
-                            <?php if($duration):?>
-                            <p><?php echo esc_html($duration); ?></p>
-                            <?php endif;?>
+                            <?php if ($duration): ?>
+                                <p><?php echo esc_html($duration); ?></p>
+                            <?php endif; ?>
                         </div>
-                        
-                   </div>
-                    <div class="exfolio-collapse-content" style="">
-                        <!-- <button class="exfolio-toggle-collapse">Toggle Details</button> -->
-                        <p class="exfolio-responsibilities">responsibilities</p>
+                        <!-- Toggle button for collapse -->
+                        <div class="exfolio_collapse_toggle">
+                            <img class="collapse-icon collapse-icon-down" src="<?php echo esc_url($collapse_icon_down); ?>" alt="arrow-down">
+                            <img class="collapse-icon collapse-icon-up" src="<?php echo esc_url($collapse_icon_up); ?>" alt="arrow-up" style="display: none;">
+                        </div>
+                    </div>
+                    <div class="exfolio-collapse-content" style="display: none;">
+                        <p class="exfolio-responsibilities">Responsibilities</p>
                         <p class="exfolio-description"><?php the_content(); ?></p>
                     </div>
                 </div>
+
             <?php endwhile; ?>
         </div>
     <?php else: ?>

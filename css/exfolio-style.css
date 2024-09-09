@@ -28,7 +28,7 @@
 
 .exfolio-collapse-content {
     margin-top: 10px;
-    /* display: none; */
+    
 }
 
 .exfolio-experience-meta-info {
@@ -44,6 +44,7 @@ h3.exfolio-experience-title {
     font-weight: 400;
     line-height: 29px;
     color: #000;
+    cursor: pointer;
 }
 .exfolio-experience-meta-info img {
     width: 20px;
@@ -98,4 +99,25 @@ p.exfolio-description{
 
 .exfolio-collapse-content li::marker{
     color: #00000066;
+}
+
+.exfolio_collapse_toggle {
+    margin-left: auto;
+    margin-top: -30px;
+}
+.exfolio_collapse_toggle img{
+    width: 12px;
+    height: 6px;
+    cursor: pointer;
+}
+
+.exfolio_collapse_toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.collapse-icon {
+    width: 16px; /* Adjust size as needed */
+    margin-left: 8px;
 }
