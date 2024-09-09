@@ -20,7 +20,9 @@
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
-
+.exfolio-experience-item:last-child {
+    border: none;
+}
 .exfolio-toggle-collapse {
     margin-top: 10px;
     cursor: pointer;
