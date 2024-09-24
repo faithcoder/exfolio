@@ -2,6 +2,8 @@
 .exfolio-experience-list {
     margin: 20px 0;
     font-family: Inter;
+    width: 100%;
+    display: block;
 }
 
 .exfolio-experience-list h1,
