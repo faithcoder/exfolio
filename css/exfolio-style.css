@@ -136,3 +136,23 @@ p.exfolio-description{
     width: 16px; /* Adjust size as needed */
     margin-left: 8px;
 }
+
+
+/*RESPONSIVE CODES*/
+
+@media (max-width: 768px) {
+    h3.exfolio-experience-title {
+        font-size: 18px !important;
+    }
+    .exfolio-company-name h4 {
+        font-size: 16px !important;
+    }
+    .exfolio-company-name h4::after{
+        display:none !important;
+    }
+    .exfolio-collapse-content li{
+        font-size: 15px;
+        font-weight: 300;
+    }
+    
+}
