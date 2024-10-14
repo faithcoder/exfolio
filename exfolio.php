@@ -130,15 +130,17 @@ function exfolio_display_experiences() {
                     <h3 class="exfolio-experience-title"><?php the_title(); ?></h3>
                     
                     <div class="exfolio-experience-meta-info">
-                        <div class="exfolio-company-logo">
-                            <?php if (get_the_post_thumbnail_url()): ?>
-                                <img src="<?php echo esc_url(get_the_post_thumbnail_url()); ?>" alt="">
-                            <?php endif; ?>
-                        </div>
-                        <div class="exfolio-company-name">
-                            <?php if ($company_name): ?>
-                                <h4><?php echo esc_html($company_name); ?></h4>
-                            <?php endif; ?>
+                        <div class="exfolio-company-info">
+                            <div class="exfolio-company-logo">
+                                <?php if (get_the_post_thumbnail_url()): ?>
+                                    <img src="<?php echo esc_url(get_the_post_thumbnail_url()); ?>" alt="">
+                                <?php endif; ?>
+                            </div>
+                            <div class="exfolio-company-name">
+                                <?php if ($company_name): ?>
+                                    <h4><?php echo esc_html($company_name); ?></h4>
+                                <?php endif; ?>
+                            </div>
                         </div>
                         <div class="exfolio-company-duration">
                             <?php if ($duration): ?>

@@ -48,6 +48,11 @@
     font-family: Inter;
 }
 
+.exfolio-company-info{
+    display: flex;
+    gap: 7px;
+}
+
 h3.exfolio-experience-title {
     font-size: 24px;
     font-weight: 400;
@@ -153,6 +158,13 @@ p.exfolio-description{
     .exfolio-collapse-content li{
         font-size: 15px;
         font-weight: 300;
+    }
+    .exfolio-experience-meta-info {
+        flex-direction: column;
+    }
+    .exfolio_collapse_toggle {
+        margin-left: -7px;
+        margin-top: 15px;
     }
     
 }
